@@ -53,7 +53,12 @@ public class HomeController
 		repo.save(a);
 		return "result";
 	}
-	
+	 @GetMapping("getAlienByAname")
+	public String getByAname(@RequestParam String aname,Model m)
+	{
+		m.addAttribute("result", repo.find(aname));
+		return "showAlien";
+	}
 //	@RequestMapping("add")
 //	public String add(@RequestParam("num1") int a,@RequestParam("num2") int b,ModelMap m)
 //	{

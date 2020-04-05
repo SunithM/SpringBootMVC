@@ -23,5 +23,13 @@ Enter your id: <input type=text name=aid> <br><br>
 
 </form>
 
+<hr>
+<form action="getAlienByAname" method="get">
+Enter your Name: <input type=text name=aname> <br><br>
+<input type="submit" name="search">
+
+</form>
+
+
 </body>
 </html>

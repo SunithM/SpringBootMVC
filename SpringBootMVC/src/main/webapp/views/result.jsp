@@ -9,7 +9,7 @@
 <body>
 
 <!--Result is:${sum}-->
-Result is:${a1}
+Result is:${alien}
 <br>
 Welcome ${name}
 

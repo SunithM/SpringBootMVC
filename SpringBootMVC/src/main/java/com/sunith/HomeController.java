@@ -1,19 +1,20 @@
 package com.sunith;
 
-import java.util.Arrays;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 import com.sunith.model.Alien;
+
+
+
+
 
 @Controller
 public class HomeController 
@@ -24,7 +25,7 @@ public class HomeController
 	@ModelAttribute
 	public void modelData(Model m)
 	{
-		m.addAttribute("name","Suhas");
+		m.addAttribute("name","Above values added succesfully");
 	}
 	@RequestMapping("/")
 	public String home()
@@ -39,6 +40,20 @@ public class HomeController
 		return "showAlien";
 		
 	}
+	@GetMapping("getOne")
+	public String getAlien(@RequestParam int aid,Model m)
+	{
+		m.addAttribute("result",repo.getOne(aid));
+		return"showAlien";
+	}
+	
+	@PostMapping("addAlien")
+	public String addAlien(@ModelAttribute Alien a)
+	{
+		repo.save(a);
+		return "result";
+	}
+	
 //	@RequestMapping("add")
 //	public String add(@RequestParam("num1") int a,@RequestParam("num2") int b,ModelMap m)
 //	{
